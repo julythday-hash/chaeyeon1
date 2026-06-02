@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>원채연 연구소 졸업 RPG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="petal-layer" aria-hidden="true"></div>
+  <div class="hud">
+    <div class="hud-title">Chaeyeon Graduation RPG</div>
+    <div class="hud-progress">
+      <span>CHAPTER</span>
+      <strong id="sceneCounter">1 / 8</strong>
+    </div>
+  </div>
+  <div class="scene-transition" id="sceneTransition" aria-hidden="true"></div>
+
+  <main id="app">
+    <section id="scene1" class="scene hero scene-bg" data-scene="1" style="--bg: url('assets/scene1-campus.png?v=20260602-1656')">
+      <div class="scene-shade"></div>
+      <div class="hero-title reveal">
+        <p class="eyebrow">LIFEPLUS 펨테크연구소</p>
+        <h1>제1회 졸업식</h1>
+        <div class="hero-badge">졸업생 원채연</div>
+        <dl class="hero-dates">
+          <div><dt>입학일</dt><dd>2024.06.01</dd></div>
+          <div><dt>졸업일</dt><dd>2026.05.31</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="scene2" class="scene scene-bg classroom" data-scene="2" style="--bg: url('assets/scene2-classroom.png?v=20260602-1656')">
+      <div class="scene-shade warm"></div>
+      <article class="student-card reveal">
+        <div class="card-header">
+          <span>FEMTECH LAB ID CARD</span>
+          <strong>No. 20240601</strong>
+        </div>
+        <div class="student-body">
+          <div class="avatar-frame">
+            <img src="assets/avatar-chaeyeon.png?v=20260602-1656" alt="원채연 아바타">
+            <div class="thumbs">양손 엄지척 장착 완료</div>
+          </div>
+          <div class="student-info">
+            <p class="mini-label">입학생 정보</p>
+            <h2>원채연</h2>
+            <dl>
+              <div><dt>입학일</dt><dd>2024.06.01</dd></div>
+              <div><dt>졸업일</dt><dd>2026.05.31</dd></div>
+              <div><dt>재학기간</dt><dd>730일</dd></div>
+              <div><dt>직책</dt><dd>연구소 막내</dd></div>
+            </dl>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="scene3" class="scene paper-scene" data-scene="3">
+      <div class="section-heading reveal">
+        <p class="eyebrow">STATUS REPORT</p>
+        <h2>생활기록부</h2>
+        <span>입사 당시 능력치가 졸업 시점으로 자동 진화합니다.</span>
+      </div>
+      <div class="stat-window reveal">
+        <div class="window-top"><span>원채연.STAT</span><span>CLASS 연구소 막내</span></div>
+        <div class="stat-list" id="statList"></div>
+        <p class="permit-text">"해당 학생은 끝내 정리정돈 스킬을 습득하지 못하였으나<br>긍정적인 태도와 끈기를 인정하여 졸업을 허가함"</p>
+      </div>
+    </section>
+
+    <section id="scene4" class="scene guide-scene" data-scene="4">
+      <div class="section-heading reveal">
+        <p class="eyebrow">CHAEYEON DEX</p>
+        <h2>채연 도감</h2>
+        <span>카드를 눌러 연구소에서 관찰된 대표 특성을 확인하세요.</span>
+      </div>
+      <div class="dex-grid">
+        <button class="dex-card reveal" type="button">
+          <span class="dex-front">양손<br>엄지척</span>
+          <span class="dex-back">회의 중에도 등장<br>보고 받을 때도 등장<br>혼날 것 같을 때도 등장</span>
+        </button>
+        <button class="dex-card reveal" type="button">
+          <span class="dex-front">와 너무<br>좋아요</span>
+          <span class="dex-back">진심일 때도 사용<br>당황할 때도 사용<br>생각이 안 날 때도 사용</span>
+        </button>
+        <button class="dex-card reveal" type="button">
+          <span class="dex-front">맥시멀<br>리스트</span>
+          <span class="dex-back">책상 위 물건 수<br>측정 불가</span>
+        </button>
+        <button class="dex-card reveal" type="button">
+          <span class="dex-front">싹싹함의<br>화신</span>
+          <span class="dex-back">누구에게나<br>친절함</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="scene5" class="scene quest scene-bg" data-scene="5" style="--bg: url('assets/scene5-rpg-map.png?v=20260602-1656')">
+      <div class="scene-shade game"></div>
+      <div class="quest-hud reveal">
+        <div>
+          <p class="eyebrow">MAIN QUEST</p>
+          <h2>추억 회수 퀘스트</h2>
+        </div>
+        <div class="rate-box">
+          <span>추억 회수율</span>
+          <strong id="memoryRate">0%</strong>
+          <div class="progress-track"><i id="memoryBar"></i></div>
+        </div>
+      </div>
+      <div class="quest-goal" aria-live="polite">현재 목표 : <strong id="currentGoalName">소현</strong></div>
+      <div class="map-stage" id="npcLayer" aria-label="추억 NPC 지도"></div>
+    </section>
+
+    <section id="scene6" class="scene achievement-scene" data-scene="6">
+      <div class="section-heading reveal">
+        <p class="eyebrow">ACHIEVEMENT UNLOCKED</p>
+        <h2>업적 획득</h2>
+        <span>연구소 생활 730일 동안 획득한 칭호가 하나씩 개방됩니다.</span>
+      </div>
+      <div class="achievement-deck" id="achievementDeck"></div>
+    </section>
+
+    <section id="scene7" class="scene scene-bg graduation" data-scene="7" style="--bg: url('assets/scene7-graduation-hall.png?v=20260602-1656')">
+      <div class="scene-shade ceremony"></div>
+      <div class="spotlight" aria-hidden="true"></div>
+      <article class="certificate reveal">
+        <img src="assets/certificate-bg.png?v=20260602-1656" alt="" aria-hidden="true">
+        <div class="certificate-text">
+          <h2>원채연</h2>
+          <span>위 사람은 LIFEPLUS 펨테크연구소에서 730일의 성실한 모험을 마치고, 싹싹함과 긍정 에너지로 동료들의 기억에 오래 남았으므로 이에 졸업을 수여합니다.</span>
+          <strong>2026.05.31</strong>
+        </div>
+        <div class="stamp" id="stamp">졸업<br>인정</div>
+      </article>
+      <button class="pixel-button award-button is-hidden" id="awardButton" type="button">졸업장 수여</button>
+      <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+    </section>
+
+    <section id="scene8" class="scene ending-scene" data-scene="8">
+      <div class="credits-window reveal">
+        <h2>ENDING CREDITS</h2>
+        <div class="credits-mask">
+          <div class="credits-roll">
+            <p class="credit-title">Special Thanks</p>
+            <p>펨테크연구소 팀원 일동</p>
+            <p>채연님의 모든 "와 너무 좋아요"를 기억하는 사람들</p>
+            <p>연구소 책상 위 작은 물건들</p>
+            <br>
+            <p>누구보다 싹싹했고</p>
+            <p>누구보다 열심히 배웠고</p>
+            <p>누구보다 많은 짐을 책상에 올려두었던</p>
+            <br>
+            <p>우리의 막내</p>
+            <p class="final-name">원채연</p>
+            <p>졸업을 축하합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="navigation-buttons global-nav" aria-label="장면 이동">
+    <button class="nav-btn back-nav" id="backButton" type="button" aria-label="이전 장면으로 이동">
+      <img src="assets/back-button.png?v=20260602-1656" alt="이전">
+    </button>
+    <button class="nav-btn next-nav" id="nextButton" type="button" aria-label="다음 장면으로 이동">
+      <img src="assets/next-button.png?v=20260602-1656" alt="다음">
+    </button>
+  </nav>
+
+  <dialog class="memory-modal" id="memoryModal">
+    <div class="modal-card">
+      <button class="close-modal" id="closeModal" type="button" aria-label="닫기">×</button>
+      <p class="eyebrow">MEMORY FRAGMENT</p>
+      <h3 id="modalTitle"></h3>
+      <img src="assets/memory-placeholder.png?v=20260602-1656" alt="추억 이미지">
+      <p id="modalEpisode"></p>
+      <button class="pixel-button" id="saveMemory" type="button">기억 저장하기</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
